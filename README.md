@@ -47,6 +47,18 @@ Data preprocessing steps include:
   - Periods of economic instability, such as the financial crisis of 2008-09, correlate with sharp increases in gold prices.
   - Box plots and coefficient of variation analyses highlight the presence of outliers and the variability in gold prices over different periods.
 
+## Limiting Data for Specific Time Periods
+- **Analysis**: Limiting the dataset to the period from 1975 to 2020 provided more relevant insights, as earlier data was relatively stagnant and less informative.
+- **Stationarity Check**:
+  - The Dickey-Fuller Test indicated that the original data was non-stationary.
+  - After differencing once, the data became stationary, ready for further modeling.
+    
+## Log Transformation and Forecasting
+- **Purpose**: Log transformation was applied to stabilize variance, linearize exponential growth, and reduce skewness.
+- **Impact**:
+  - Original data exhibited significant volatility, which was smoothed by the log transformation.
+  - Differencing once (d = 1) helped remove the trending pattern, making the data more suitable for modeling.
+
 ## Model Building 🛠️
 
 We built various time series models, both with and without log transformation. The models include:
@@ -213,6 +225,12 @@ conda activate gold
 ## Conclusion 📌
 
 The analysis and forecasting of gold prices using time series models reveal that simpler models like Linear Regression and Naive models perform relatively well compared to more complex models like SARIMAX and TES. Incorporating exogenous variables such as Nasdaq stock prices and Google Trends data did not significantly improve the forecasting accuracy.
+
+- **Trend Analysis**: Gold prices show long-term upward trends with periodic volatility influenced by economic and geopolitical factors.
+- **Seasonality**: Identified yearly seasonality patterns, with an additive nature for seasonality and multiplicative for trends.
+- **Correlations**:
+  - Positive correlations were found between gold prices and both Nasdaq stock prices and Google search trends for "gold price".
+  - These factors can be considered as exogenous variables in advanced models.
 
 Key takeaways:
 - **Linear Regression** models, both with and without log transformation, show the best performance with the lowest MAE and RMSE.
